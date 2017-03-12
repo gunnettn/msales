@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App;
-use App\actcon;
+use App\Actcon;
 use App\Http\Requests;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
@@ -18,7 +18,7 @@ class ActconController extends Controller
      */
     public function index()
     {
-        $actcon = actcon::all();
+        $actcon = Actcon::all();
         return view('actcon.index')->with('actcons',$actcon);
     }
 
@@ -40,7 +40,7 @@ class ActconController extends Controller
      */
     public function store(Request $request)
     {
-        $actcon = new actcon;
+        $actcon = new Actcon;
         $actcon->recieveDate = $request->recieveDate;
         $actcon->target = $request->target;
         $actcon->save();
@@ -66,7 +66,7 @@ class ActconController extends Controller
      */
     public function edit($id)
     {
-        $actcon = actcon::find($id);
+        $actcon = Actcon::find($id);
         return view ('actcon.edit')->with('value',$actcon);
     }
 
@@ -79,7 +79,7 @@ class ActconController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $actcon = actcon::find($id);
+        $actcon = Actcon::find($id);
         $actcon->recieveDate = $request->recieveDate;
         $actcon->target = $request->target;
         $actcon->save();
@@ -94,7 +94,7 @@ class ActconController extends Controller
      */
     public function destroy($id)
     {
-        $actcon =actcon::find($id);
+        $actcon =Actcon::find($id);
         $actcon->delete();
         return redirect()->route ('actcon.index');
     }
