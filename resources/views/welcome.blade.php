@@ -125,6 +125,7 @@
                 </div>
             @endif
 
+            ddddddddd
         <div class="content">
             <img src="{{url('images/logomajor-white.png')}}" width="20%">
                 <div class="title m-b-md">
